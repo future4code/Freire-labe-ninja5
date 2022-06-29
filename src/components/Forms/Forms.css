@@ -1,4 +1,11 @@
-.box-principal{
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    -webkit-box-align: center;
+}
+
+.box-principal {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -6,18 +13,23 @@
     width: 309px;
     height: 600px;
     margin-bottom: 12px;
+
 }
-.box-principal div{
+
+.box-principal div {
     margin-bottom: 12px;
 }
-.box-principal input{
+
+.box-principal input {
     width: 309px;
 }
-.form button{
+
+.form button {
     display: flex;
     align-items: flex-start;
     text-align: center;
 }
+
 h1 {
     display: block;
     font-size: 2em;
@@ -26,8 +38,9 @@ h1 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-    align-items: center;
+    text-align: center;
 }
+
 /* .box {
     display: flex;
     flex-direction: column;

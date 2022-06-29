@@ -1,11 +1,18 @@
-import Forms from './components/Forms';
+
 import './App.css';
-import './forms.css';
+import Forms from './components/Forms/Forms';
+import FiltroContratante from './components/Contratante/FiltrosContratante';
+
 
 function App() {
   return (
-    <div className="App">
-      <Forms></Forms>
+    <div>
+      <Forms/>
+
+
+
+
+      <FiltroContratante/>
     </div>
   );
 }
