@@ -1,21 +1,80 @@
 import React from "react";
 import './Forms.css'
+import axios from "axios";
 
 export default class Forms extends React.Component {
     
     state = {
-        título:"",
-        descrição: "",
-        preço: "",
+        title:"",
+        description: "",
+        price: 0,
+        paymentMethods: [],
+        dueDate: ""
     }
 
-    handleInputChange = (e) => {
+    titleInputChange = (e) => {
         this.setState({
             title: e.target.value
-        })
-    }
+        });
+    };
+    descriptionInputChange = (e) => {
+        this.setState({
+            description: e.target.value
+        });
+    };
+    
+    priceInputChange = (e) => {
+        this.setState({
+            price: Number(e.target.value)
+        });
+    };
+    
+    paymentMethodsInputChange = (e) => {
+        const paymentList = [...this.state.paymentMethods, e.target.value]
+        this.setState({
+            paymentMethods: paymentList
+        });
+        console.log(paymentList)
+    };
+    
+    dueDateInputChange = (e) => {
+        this.setState({
+            dueDate: e.target.value
+        });
+    };
 
+    createJob = (e) => {
+        e.preventDefault()
+        console.log('chegou')
+        const body = {
+            title: this.state.title,
+            description: this.state.description,
+            price: this.state.price,
+            paymentMethods: this.state.paymentMethods,
+            dueDate: this.state.dueDate,
+        };
+    axios.post("https://labeninjas.herokuapp.com/jobs", body, {
+        headers: {
+            Authorization: "82842cb7-be45-48c9-b492-20aa550cecd1"
+        }}
+    ).then((resposta) => {
+        console.log(resposta.data)
+        this.setState({
+        title:"",
+        description: "",
+        price: 0,
+        paymentMethods: [],
+        dueDate: ""})
+    }).catch((error) => {
+        console.log(error.response)
+    });
+};
     render(){
+
+/*         const cadastrouBotao = () => {
+            alert("Cadastro realizado com sucesso!")
+        } */
+
         return(
             <div className='container'>
             <section className="box-principal"> 
@@ -24,44 +83,71 @@ export default class Forms extends React.Component {
                         <form> {/* FORMULÁRIO */}
                             <div>
                                 <input 
-                                    /* onChange={} */
+                                    value={this.state.title}
+                                    onChange={this.titleInputChange}
                                     type="text" 
                                     placeholder="Titulo"
                                 />
                             </div>
                             <div>    
                                 <input 
-                                    
+                                    value={this.state.description}
+                                    onChange={this.descriptionInputChange}
                                     type="text" 
                                     placeholder="Descrição"
                                 />
                             </div>  
                             <div>  
                                 <input 
-                                    
+                                    onChange={this.priceInputChange}
+                                    value={this.state.price}
                                     type="number" 
                                     placeholder="Preço"
                                 />
                             </div>
                             <div>
-                                <select placeholder="Forma de pagamento">
-                                    <option>Cartão de Débito</option>
-                                    <option>Cartão de Crédito</option>
-                                    <option>PayPal</option>
-                                    <option>Boleto</option>
-                                    <option>Pix</option>
-                                </select>
+                                <fieldset>
+                                    <legend><b>Método de pagamento</b></legend>
+                                    <div>
+                                        <input 
+                                            onChange={this.paymentMethodsInputChange}
+                                            value="cartão de crédito"
+                                            type="checkbox"/>
+                                        <label>Cartão de crédito</label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            onChange={this.paymentMethodsInputChange}
+                                            value="cartao de débito"
+                                            type="checkbox"/>
+                                        <label >Cartão de Débito</label>
+                                    </div>
+                                    <div>
+                                        <input 
+                                            onChange={this.paymentMethodsInputChange}
+                                            value="pix"
+                                            type="checkbox"/>
+                                        <label >Pix</label>
+                                    </div>
+                                    <div>
+                                        <input 
+                                            onChange={this.paymentMethodsInputChange}
+                                            value="boleto"
+                                            type="checkbox"/>
+                                        <label >Boleto</label>
+                                    </div>
+                                </fieldset>   
                             </div>    
                             <div>    
                                 <input 
-                                    
+                                    value={this.state.dueDate}
+                                    onChange={this.dueDateInputChange} 
                                     type="date" 
-                                    placeholder="Forma de pagamento"
                                 />
                             </div>    
                             <button
-                                type="submit"
-                                onclick="alert('Cadastro realizado com sucesso!')">Cadastrar
+                                onClick={this.createJob}
+                                >Cadastrar
                             </button>
                         </form>
                 </div>     
