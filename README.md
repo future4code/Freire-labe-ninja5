@@ -1,3 +1,35 @@
+# Entrega --Terça-Feira 28/06/2022
+
+### Tomada de decisão 
+Foi realizado uma daily, e vimos que o simples atinge a excelência.
+
+A partir, dessa daily realizamos wireframe que incluem 4 telas.
+
+     Cabecalho junto de um menu, e Rodapé. 
+
+    Inicio(index) - contera informações sobre a empresa, e como contratar um serviço. 
+
+    Cadastro de serviço 
+
+    Serviços - com filtros
+
+    Carrinho de Compras
+
+
+
+### Paleta de cores
+
+| Color             | HEX |
+| ----------------- | ------------------------------------|
+| Orange |#FF8500|
+| Brown |#684138|
+| DarkBrown |#402E32|
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

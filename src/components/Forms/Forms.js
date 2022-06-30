@@ -1,4 +1,5 @@
 import React from "react";
+import './Forms.css'
 
 export default class Forms extends React.Component {
     
@@ -21,6 +22,7 @@ export default class Forms extends React.Component {
         }
 
         return(
+            <div className='container'>
             <section className="box-principal"> 
                 <div>   
                     <h2>Cadastre o seu serviço</h2>
@@ -70,6 +72,7 @@ export default class Forms extends React.Component {
                         </form>
                 </div>     
             </section>
+            </div>
         )
     }
 }
