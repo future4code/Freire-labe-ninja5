@@ -29,8 +29,6 @@ border-radius:7px ;
 &:active{
     background-color: brown;
 }
-
-
 `
 
 
