@@ -15,6 +15,11 @@ export default class Forms extends React.Component {
     }
 
     render(){
+
+        const cadastrouBotao = () => {
+            alert("Cadastro realizado com sucesso!")
+        }
+
         return(
             <section className="box-principal"> 
                 <div>   
@@ -58,8 +63,9 @@ export default class Forms extends React.Component {
                                 />
                             </div>    
                             <button
+                                onClick={cadastrouBotao}
                                 type="submit"
-                                onclick="alert('Cadastro realizado com sucesso!')">Cadastrar
+                                >Cadastrar
                             </button>
                         </form>
                 </div>     
