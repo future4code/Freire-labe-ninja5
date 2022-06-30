@@ -22,8 +22,10 @@ A partir, dessa daily realizamos wireframe que incluem 4 telas.
 | Color             | HEX |
 | ----------------- | ------------------------------------|
 | Orange |#FF8500|
+| Sand | #C4A689|
 | Brown |#684138|
 | DarkBrown |#402E32|
+
 
 
 

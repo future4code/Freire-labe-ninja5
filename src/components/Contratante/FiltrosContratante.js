@@ -1,80 +1,105 @@
 import React from 'react';
+import axios from 'axios';
 import { DivFiltro, DivGrade } from './styled';
-import Servicos from './Servicos';
+import Servicos from '../Servicos/Servicos';
 
-import AXIOS from 'axios';
 export default class Contratante extends React.Component {
+
     state = {
-        Jobs: []
-            
+        jobs: []
+
     }
+    
+    // Chamada de todos os serviços no Array
+    // Chamada de todos os serviços no Array
+    // Chamada de todos os serviços no Array
 
     componentDidMount() {
         this.getAllJobs();
     }
 
-    getAllJobs = () =>
-        AXIOS
+    getAllJobs = () => {
+
+        axios
             .get(
                 'https://labeninjas.herokuapp.com/jobs',
                 {
                     headers: {
-                        Authorization: '82842cb7-be45-48c9-b492-20aa550cecd1'
+                        Authorization:  'e2190c39-7930-4db4-870b-bed0e5e4b88e'
                     }
                 }
             )
             .then((response) => {
                 console.log(response.data);
-        
-            }).catch((err) => {
-                alert(err.message);
-                console.log(err.message);
+                this.setState({ jobs: response.data.jobs })
+            }).catch((error) => {
+                alert(error.message);
+                console.log(error.message);
             });
+           
+        }
+        
+        // Chamada de Serviço por ID
+        // Chamada de Serviço por ID
+        // Chamada de Serviço por ID
 
+        getAllJobsId = (id) => {
+
+            axios
+                .get(
+                    `https://labeninjas.herokuapp.com/jobs/${id}`,
+                    {
+                        headers: {
+                            Authorization:  'e2190c39-7930-4db4-870b-bed0e5e4b88e'
+                        }
+                    }
+                )
+                .then((response) => {
+                    console.log(response.data);
+                    this.setState({ jobs: response.data.jobs })
+                }).catch((error) => {
+                    alert(error.message);
+                    console.log(error.message);
+                });
+               
+            }
+
+            
 
 
 
     render() {
-        const title = this.state.Jobs.map((job) => {
-            return <p>{job.title}</p>;
-        })
-
-        // const price = this.state.Jobs.map((job) => {
-        //     return <p>{job.price}</p>;
-        // })
-        //     const dueDate = this.state.Jobs.map((job) =>{
-        //         return <p>{job.dueDate}</p>;
-        //     })
 
         return (
             <div>
+
+                
+
                 <DivFiltro>
                     <input type="number" placeholder="Valor Mínimo"  ></input>
                     <input type="number" placeholder="Valor Máximo"  ></input>
                     <input type="text" placeholder="Busca por Título"  ></input>
                     <select >
-                        <option> -- </option>
+                        <option> -------- </option>
                         <option>Menor Valor</option>
                         <option>Maior Valor</option>
                         <option>Titulo</option>
                         <option>Prazo</option>
                     </select>
                 </DivFiltro>
-                <section>
-                {title}
-                </section>
 
-
+               
+                
                 <DivGrade>
 
-                    <Servicos
-                        titulo=""
-                        preco=""
-                        prazo=""
-                    />
-
-
-
+                    
+                {this.state.jobs.map((job) => {
+                    return <Servicos key={job.id}
+                    titulo= {job.title}
+                    preco= {job.price}
+                    prazo= {job.dueDate.slice(0,10)}
+                    />;
+                })}
 
                 </DivGrade>
             </div>
