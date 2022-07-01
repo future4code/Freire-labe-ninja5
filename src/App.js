@@ -1,22 +1,13 @@
 
 import './App.css';
-import Forms from './components/Forms/Forms';
+import Home from './components/Home/Home';
 import FiltroContratante from './components/Contratante/FiltrosContratante';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 
 
 function App() {
   return (
     <div>
-      <Header/>
-      <Forms/>
-
-
-
-
-      <FiltroContratante/>
-      <Footer/>
+      <Home/>
     </div>
   );
 }

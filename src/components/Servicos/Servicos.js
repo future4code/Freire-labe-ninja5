@@ -11,7 +11,7 @@ export default function Servicos(props) {
             <p><b>Preço:</b> R$ {props.preco}</p>
             <p><b>Prazo:</b> {props.prazo}</p>
             <Button>Ver Detalhes</Button> &nbsp;
-            <Button>Adicionar no Carrinho</Button>
+            <Button onClick={() => props.addCart()} >Adicionar no Carrinho</Button>
 
         </DivServico>
         
