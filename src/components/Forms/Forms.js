@@ -53,7 +53,7 @@ export default class Forms extends React.Component {
             paymentMethods: this.state.paymentMethods,
             dueDate: this.state.dueDate,
         };
-    axios.post("https://labeninjas.herokuapp.com/jobs", body, {
+    axios.post("https://labeninjas.herLabeNinjasokuapp.com/jobs", body, {
         headers: {
             Authorization: "82842cb7-be45-48c9-b492-20aa550cecd1"
         }}

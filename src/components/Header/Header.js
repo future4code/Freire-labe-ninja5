@@ -2,6 +2,8 @@ import React from 'react';
 import { Head, CompHead } from './styled';
 
 export default class Header extends React.Component {
+
+
     render() {
         return (
 
@@ -9,8 +11,8 @@ export default class Header extends React.Component {
 
                 <h1>LABE - Friends</h1>
                 <CompHead>
-                    <button>home</button>
-                    <button>Carrinho</button>
+                    <button onClick={() => this.props.home()}>home</button>
+                    <button onClick={() => this.props.carrinho()}>Carrinho</button>
 
 
                 </CompHead>

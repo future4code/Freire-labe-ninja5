@@ -98,6 +98,7 @@ export default class Contratante extends React.Component {
                     titulo= {job.title}
                     preco= {job.price}
                     prazo= {job.dueDate.slice(0,10)}
+                    addCart= {() => this.props.addCart(job)}
                     />;
                 })}
 
