@@ -12,7 +12,7 @@ export const DivCarrinho = styled.div`
     width: 100%;
     height: fit-content;
     padding: 20px 0px;
-    height: 74vh;
+    min-height: 74vh;
 
 `
 
