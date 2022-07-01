@@ -34,6 +34,25 @@ export const DivGrade = styled.div`
     padding: 20px 0px;
 
 `
+export const Img = styled.img`
+display: flex;
+margin-left:25%;
+width: 45%;
+@media (prefers-reduced-motion: no-preference) {
+    animation: App-logo-spin infinite 4s linear;
+  
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 
+`
+
+  
 

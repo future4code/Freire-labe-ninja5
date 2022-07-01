@@ -1,19 +1,22 @@
 import React from "react";
 
-import {DivCarrinho, DivItensCarrinho } from './styled';
+import { DivCarrinho, DivItensCarrinho, DivCarrinhoVazio } from './styled';
 export default class Carrinho extends React.Component {
 
+    AlertRemoval = () => {
+        return alert("Serviço removido do carrinho");
+    }
 
-   
+
 
     k = () => {
-        return <div>
+        return <DivCarrinhoVazio>
             <h1>Carrinho Vazio</h1>
-            <br/>
-            <button onClick={() => this.props.backList()}>Voltar para a lista</button>
-             </div> 
+            <br />
+            <button onClick={() => { this.props.backList() }}>Voltar para a lista</button>
+        </DivCarrinhoVazio>
     }
-    
+
     t = () => {
         return (
             <DivCarrinho>
@@ -21,26 +24,25 @@ export default class Carrinho extends React.Component {
                     return (
                         <>
                             <DivItensCarrinho key={job.id + i}>
-                                <label>{job.title}</label>
+                                <p>{job.title}</p>
                                 <br />
-                                <label>R${job.price}</label>
+                                <p>R${job.price}</p>
                                 <br />
                                 <button onClick={() => this.props.removeJob(i)}>Remover</button>
-                                <br />
                                 <br />
                             </DivItensCarrinho>
                         </>
                     );
                 })}
                 <label>Total: R${this.props.carrinho
-                                .map(tmp => tmp.job)
-                                .map(job => job.price)
-                                .reduce((acc, price) => acc + price)
-                            }</label>
-                            <br/>
-                            <button onClick={() => this.props.backList()}>Voltar para a lista</button>
-                            <br/>
-                            <button onClick={() => this.props.cleanCart()}>Finalizar Compra</button>
+                    .map(tmp => tmp.job)
+                    .map(job => job.price)
+                    .reduce((acc, price) => acc + price)
+                }</label>
+                <br />
+                <button onClick={() => this.props.backList()}>Voltar para a lista</button>
+                <br />
+                <button onClick={() => this.props.cleanCart()}>Finalizar Compra</button>
             </DivCarrinho>
         )
     }

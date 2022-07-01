@@ -3,11 +3,11 @@ import './Forms.css'
 import axios from "axios";
 
 export default class Forms extends React.Component {
-    
+
     state = {
-        title:"",
+        title: "",
         description: "",
-        price: 0,
+        price: "",
         paymentMethods: [],
         dueDate: ""
     }
@@ -22,13 +22,13 @@ export default class Forms extends React.Component {
             description: e.target.value
         });
     };
-    
+
     priceInputChange = (e) => {
         this.setState({
             price: Number(e.target.value)
         });
     };
-    
+
     paymentMethodsInputChange = (e) => {
         const paymentList = [...this.state.paymentMethods, e.target.value]
         this.setState({
@@ -36,7 +36,7 @@ export default class Forms extends React.Component {
         });
         console.log(paymentList)
     };
-    
+
     dueDateInputChange = (e) => {
         this.setState({
             dueDate: e.target.value
@@ -45,7 +45,7 @@ export default class Forms extends React.Component {
 
     createJob = (e) => {
         e.preventDefault()
-        console.log('chegou')
+
         const body = {
             title: this.state.title,
             description: this.state.description,
@@ -53,55 +53,58 @@ export default class Forms extends React.Component {
             paymentMethods: this.state.paymentMethods,
             dueDate: this.state.dueDate,
         };
-    axios.post("https://labeninjas.herLabeNinjasokuapp.com/jobs", body, {
-        headers: {
-            Authorization: "82842cb7-be45-48c9-b492-20aa550cecd1"
-        }}
-    ).then((resposta) => {
-        console.log(resposta.data)
-        this.setState({
-        title:"",
-        description: "",
-        price: 0,
-        paymentMethods: [],
-        dueDate: ""})
-    }).catch((error) => {
-        console.log(error.response)
-    });
-};
-    render(){
+        axios.post('https://labeninjas.herokuapp.com/jobs', body, {
+            headers: {
+                Authorization: "82842cb7-be45-48c9-b492-20aa550cecd1"
+            }
+        }
+        ).then((resposta) => {
+            alert("Cadastrado com Sucesso")
+            console.log(resposta.data)
+            this.setState({
+            title:"",
+            description: "",
+            price: "",
+            paymentMethods: [],
+            dueDate: ""})
+        }).catch((error) => {
+            console.log(error.response)
+            alert("Ixi, deu erro!")
+        });
+    };
+    render() {
 
-/*         const cadastrouBotao = () => {
-            alert("Cadastro realizado com sucesso!")
-        } */
+        /*         const cadastrouBotao = () => {
+                    alert("Cadastro realizado com sucesso!")
+                } */
 
-        return(
+        return (
             <div className='container'>
-            <section className="box-principal"> 
-                <div>   
-                    <h2>Cadastre o seu serviço</h2>
+                <section className="box-principal">
+                    <div>
+                        <h2>Cadastre o seu serviço</h2>
                         <form> {/* FORMULÁRIO */}
                             <div>
-                                <input 
+                                <input
                                     value={this.state.title}
                                     onChange={this.titleInputChange}
-                                    type="text" 
+                                    type="text"
                                     placeholder="Titulo"
                                 />
                             </div>
-                            <div>    
-                                <input 
+                            <div>
+                                <input
                                     value={this.state.description}
                                     onChange={this.descriptionInputChange}
-                                    type="text" 
+                                    type="text"
                                     placeholder="Descrição"
                                 />
-                            </div>  
-                            <div>  
-                                <input 
+                            </div>
+                            <div>
+                                <input
                                     onChange={this.priceInputChange}
                                     value={this.state.price}
-                                    type="number" 
+                                    type="number"
                                     placeholder="Preço"
                                 />
                             </div>
@@ -109,49 +112,49 @@ export default class Forms extends React.Component {
                                 <fieldset>
                                     <legend><b>Método de pagamento</b></legend>
                                     <div>
-                                        <input 
+                                        <input
                                             onChange={this.paymentMethodsInputChange}
                                             value="cartão de crédito"
-                                            type="checkbox"/>
+                                            type="checkbox" />
                                         <label>Cartão de crédito</label>
                                     </div>
                                     <div>
                                         <input
                                             onChange={this.paymentMethodsInputChange}
                                             value="cartao de débito"
-                                            type="checkbox"/>
+                                            type="checkbox" />
                                         <label >Cartão de Débito</label>
                                     </div>
                                     <div>
-                                        <input 
+                                        <input
                                             onChange={this.paymentMethodsInputChange}
                                             value="pix"
-                                            type="checkbox"/>
+                                            type="checkbox" />
                                         <label >Pix</label>
                                     </div>
                                     <div>
-                                        <input 
+                                        <input
                                             onChange={this.paymentMethodsInputChange}
                                             value="boleto"
-                                            type="checkbox"/>
+                                            type="checkbox" />
                                         <label >Boleto</label>
                                     </div>
-                                </fieldset>   
-                            </div>    
-                            <div>    
-                                <input 
+                                </fieldset>
+                            </div>
+                            <div>
+                                <input
                                     value={this.state.dueDate}
-                                    onChange={this.dueDateInputChange} 
-                                    type="date" 
+                                    onChange={this.dueDateInputChange}
+                                    type="date"
                                 />
-                            </div>    
+                            </div>
                             <button
                                 onClick={this.createJob}
-                                >Cadastrar
+                            >Cadastrar
                             </button>
                         </form>
-                </div>     
-            </section>
+                    </div>
+                </section>
             </div>
         )
     }
