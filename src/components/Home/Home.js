@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import FiltroContratante from '../Contratante/FiltrosContratante';
 import Carrinho from '../Carrinho/Carrinho'
+import {DivHome} from './styled';
 export default class Home extends React.Component {
 
 
@@ -23,12 +24,13 @@ export default class Home extends React.Component {
     }
 
     home = () => {
-        return <div hidden={this.props.homeHidden}>
+        return <DivHome hidden={this.props.homeHidden}>
             <h1>LabeNinjas</h1>
             <h3>O talento certo no momento certo</h3>
             <button onClick={() => this.setState({ show: this.forms })}>Quero ser um Ninja</button>
+            &nbsp; 
             <button onClick={() => this.setState({ show: this.contratante })}>Contratar um Ninja</button>
-        </div>
+        </DivHome>
     }
 
     car = () => {
@@ -50,12 +52,14 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <>
-                <Header home={() => this.setState({ show: this.home })}
+            <div>
+                <Header 
+                home={() => this.setState({ show: this.home })}
+
                 carrinho={() => this.setState({ show: this.car })} />
                 {this.state.show()}
                 <Footer />
-            </>
+            </div>
 
         )
 

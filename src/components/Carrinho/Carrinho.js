@@ -1,22 +1,26 @@
 import React from "react";
+
+import {DivCarrinho, DivItensCarrinho } from './styled';
 export default class Carrinho extends React.Component {
 
 
-    constructor(props) {
-        super(props)
-    }
+   
 
     k = () => {
-        return <h1>Carrinho Vazio</h1>
+        return <div>
+            <h1>Carrinho Vazio</h1>
+            <br/>
+            <button onClick={() => this.props.backList()}>Voltar para a lista</button>
+             </div> 
     }
     
     t = () => {
         return (
-            <>
+            <DivCarrinho>
                 {this.props.carrinho.map(tmp => tmp.job).map((job, i) => {
                     return (
                         <>
-                            <span key={job.id + i}>
+                            <DivItensCarrinho key={job.id + i}>
                                 <label>{job.title}</label>
                                 <br />
                                 <label>R${job.price}</label>
@@ -24,7 +28,7 @@ export default class Carrinho extends React.Component {
                                 <button onClick={() => this.props.removeJob(i)}>Remover</button>
                                 <br />
                                 <br />
-                            </span>
+                            </DivItensCarrinho>
                         </>
                     );
                 })}
@@ -37,7 +41,7 @@ export default class Carrinho extends React.Component {
                             <button onClick={() => this.props.backList()}>Voltar para a lista</button>
                             <br/>
                             <button onClick={() => this.props.cleanCart()}>Finalizar Compra</button>
-            </>
+            </DivCarrinho>
         )
     }
 

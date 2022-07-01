@@ -10,7 +10,7 @@ export const DivServico = styled.div`
     margin: 20px 20px;
     padding: 10px;
     border-radius:20px;
- width:280px;
+ width:250px;
  &:hover{
     background-color: #C4A689; opacity: 90% ;
  }
