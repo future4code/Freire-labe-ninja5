@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Head = styled.header`
- background: linear-gradient(90deg, rgba(48,80,58,1) 0%, rgba(38,79,39,1) 28%, rgba(0,0,0,1) 100%);
+ background: linear-gradient(90deg, #C4A689 10% , #684138 60%, #402E32 100%);
  display: flex;
  justify-content: space-between;
  align-items: center;

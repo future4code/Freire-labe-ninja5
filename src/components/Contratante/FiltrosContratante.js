@@ -2,12 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { DivFiltro, DivGrade } from './styled';
 import Servicos from '../Servicos/Servicos';
+// import logo from '../../logo.svg';
 
 export default class Contratante extends React.Component {
 
     state = {
-        jobs: []
-
+        jobs: [],
+        CarregamentoTela: false
     }
     
     // Chamada de todos os serviços no Array
@@ -16,6 +17,7 @@ export default class Contratante extends React.Component {
 
     componentDidMount() {
         this.getAllJobs();
+    
     }
 
     getAllJobs = () => {
@@ -25,7 +27,7 @@ export default class Contratante extends React.Component {
                 'https://labeninjas.herokuapp.com/jobs',
                 {
                     headers: {
-                        Authorization:  'e2190c39-7930-4db4-870b-bed0e5e4b88e'
+                        Authorization:  '82842cb7-be45-48c9-b492-20aa550cecd1'
                     }
                 }
             )
@@ -50,7 +52,7 @@ export default class Contratante extends React.Component {
                     `https://labeninjas.herokuapp.com/jobs/${id}`,
                     {
                         headers: {
-                            Authorization:  'e2190c39-7930-4db4-870b-bed0e5e4b88e'
+                            Authorization:  '82842cb7-be45-48c9-b492-20aa550cecd1'
                         }
                     }
                 )
@@ -70,10 +72,19 @@ export default class Contratante extends React.Component {
 
     render() {
 
+        const listaServicos = this.state.jobs.map((job) => {
+            return <Servicos key={job.id}
+            titulo= {job.title}
+            preco= {job.price}
+            prazo= {job.dueDate.slice(0,10)}
+            addCart= {() => this.props.addCart(job)}
+            />;
+        }) 
+
+
+
         return (
             <div>
-
-                
 
                 <DivFiltro>
                     <input type="number" placeholder="Valor Mínimo"  ></input>
@@ -91,16 +102,9 @@ export default class Contratante extends React.Component {
                
                 
                 <DivGrade>
-
-                    
-                {this.state.jobs.map((job) => {
-                    return <Servicos key={job.id}
-                    titulo= {job.title}
-                    preco= {job.price}
-                    prazo= {job.dueDate.slice(0,10)}
-                    addCart= {() => this.props.addCart(job)}
-                    />;
-                })}
+                 
+                {listaServicos}
+                {/* {this.state.CarregamentoTela ?    : <img src={logo} className="App-logo" alt="logo" />} */}
 
                 </DivGrade>
             </div>

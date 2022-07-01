@@ -11,7 +11,7 @@ export default class Header extends React.Component {
 
                 <h1>LABE - Friends</h1>
                 <CompHead>
-                    <button onClick={() => this.props.home()}>home</button>
+                    <button onClick={() => this.props.home()}>Home</button>&nbsp;
                     <button onClick={() => this.props.carrinho()}>Carrinho</button>
 
 
