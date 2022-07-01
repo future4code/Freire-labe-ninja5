@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DivCarrinho = styled.div`
 
-display: flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
@@ -17,10 +17,15 @@ display: flex;
 `
 
 export const DivItensCarrinho = styled.span`
-
-border: 2px solid black;
+    
+    border: 2px solid black;
     margin: 20px 20px;
     padding: 10px;
     border-radius:20px;
- width:280px;
+    width:280px;
+`
+export const DivCarrinhoVazio = styled.div`
+    text-align: center;
+    height: 74vh;
+
 `
