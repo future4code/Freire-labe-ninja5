@@ -27,7 +27,7 @@ export const DivGrade = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    
+    min-height: 74vh;
     gap: 25px;
     width: 100%;
     height: fit-content;
