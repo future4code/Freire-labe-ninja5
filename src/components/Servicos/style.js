@@ -23,10 +23,10 @@ export const Button = styled.button`
     border-radius:7px ;
 
     &:hover{
-        color:orange;
+        color:#FF8500;
     }
     &:active{
-        background-color: brown;
+        background-color: #684138;
     }
 
 

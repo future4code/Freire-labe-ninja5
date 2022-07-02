@@ -4,12 +4,14 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import FiltroContratante from '../Contratante/FiltrosContratante';
 import Carrinho from '../Carrinho/Carrinho'
-import {DivHome} from './styled';
+import {DivHome , Button, H1} from './styled';
 export default class Home extends React.Component {
 
 
     forms = () => {
-        return <Forms />
+        return <Forms 
+        backList={() => this.setState({ show: this.contratante })}
+       />
     }
 
 
@@ -24,13 +26,15 @@ export default class Home extends React.Component {
         return <FiltroContratante addCart={(job) => this.updateCart({job})}/>
     }
 
+    
+
     home = () => {
         return <DivHome hidden={this.props.homeHidden}>
-            <h1>LabeNinjas</h1>
+            <H1>Labe Ninjas</H1>
             <h3>O talento certo no momento certo</h3>
-            <button onClick={() => this.setState({ show: this.forms })}>Quero ser um Ninja</button>
+            <Button onClick={() => this.setState({ show: this.forms })}>Quero ser um Ninja</Button>
             &nbsp; 
-            <button onClick={() => this.setState({ show: this.contratante })}>Contratar um Ninja</button>
+            <Button onClick={() => this.setState({ show: this.contratante })}>Contratar um Ninja</Button>
         </DivHome>
     }
 

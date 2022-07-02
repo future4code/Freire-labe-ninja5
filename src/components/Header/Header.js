@@ -1,5 +1,5 @@
 import React from 'react';
-import { Head, CompHead } from './styled';
+import { Head, CompHead, Button } from './styled';
 
 export default class Header extends React.Component {
 
@@ -9,10 +9,10 @@ export default class Header extends React.Component {
 
             <Head>
 
-                <h1>LABE - Friends</h1>
+                <h1 onClick={() => this.props.home()}>Labe Ninjas</h1>
                 <CompHead>
-                    <button onClick={() => this.props.home()}>Home</button>&nbsp;
-                    <button onClick={() => this.props.carrinho()}>Carrinho</button>
+                    <Button onClick={() => this.props.home()}>Home</Button>&nbsp; &nbsp;&nbsp;
+                    <Button onClick={() => this.props.carrinho()}>Carrinho</Button>
 
 
                 </CompHead>

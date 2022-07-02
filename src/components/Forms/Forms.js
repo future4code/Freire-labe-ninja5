@@ -59,7 +59,7 @@ export default class Forms extends React.Component {
             }
         }
         ).then((resposta) => {
-            alert("Cadastrado com Sucesso")
+            alert("Cadastrado com Sucesso!")
             console.log(resposta.data)
             this.setState({
             title:"",
@@ -72,6 +72,10 @@ export default class Forms extends React.Component {
             alert("Ixi, deu erro!")
         });
     };
+
+
+
+
     render() {
 
         /*         const cadastrouBotao = () => {
@@ -148,10 +152,12 @@ export default class Forms extends React.Component {
                                     type="date"
                                 />
                             </div>
-                            <button
+                            <button className="Button1"
                                 onClick={this.createJob}
                             >Cadastrar
                             </button>
+
+                            <button className="Button" onClick={() =>this.props.backList()}>Ir para Serviços</button>
                         </form>
                     </div>
                 </section>

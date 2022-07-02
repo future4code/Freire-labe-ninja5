@@ -50,4 +50,26 @@ h1 {
 }
  */
 
+ .Button1{
+    border-radius:7px ;
+   
+    margin: 10px 46% 0 0;
+ }
+ .Button {
+    border-radius:7px ;
+    margin: 10px 0 0 0
+ }
+ .Button:hover{
+    color:#FF8500;
+}
+.Button:active{
+    background-color: #684138;
+}
+ 
+.Button1:hover{
+    color:#FF8500;
+}
+.Button1:active{
+    background-color: #684138;
+}
  
