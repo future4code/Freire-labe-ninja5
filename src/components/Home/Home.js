@@ -17,6 +17,7 @@ export default class Home extends React.Component {
         const tmp = [...this.state.carrinho]
         tmp.push(job)
         this.setState({carrinho: tmp})
+        alert(`Adicionado com sucesso ${job.job.title}`)
     }
 
     contratante = () => {
@@ -41,9 +42,11 @@ export default class Home extends React.Component {
     }
     
     removeJob = (index) => {
+        const removido = {...this.state.carrinho[index]}
         const tmp = [...this.state.carrinho]
         tmp.splice(index,1)
-        this.setState({carrinho: tmp})
+        this.setState({carrinho: tmp},() => alert(`Removido: ${removido.job.title}`))
+        
     }
 
 
