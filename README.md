@@ -28,8 +28,7 @@ A partir, dessa daily realizamos wireframe que incluem 4 telas.
 
 ## Link Surge
 
-https://uppity-attempt.surge.sh/
-
+https://dangerous-competition.surge.sh/
 
 
 
