@@ -3,10 +3,7 @@ import React from "react";
 import { DivCarrinho, DivItensCarrinho, DivCarrinhoVazio } from './styled';
 export default class Carrinho extends React.Component {
 
-    AlertRemoval = () => {
-        return alert("Serviço removido do carrinho");
-    }
-
+    
 
 
     k = () => {

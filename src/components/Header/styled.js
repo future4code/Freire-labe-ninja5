@@ -6,10 +6,10 @@ export const Head = styled.header`
  display: flex;
  justify-content: space-between;
  align-items: center;
- 
+  color:	#402E32;
  padding: 10px 20px 10px 20px ;
  flex-wrap: wrap;
- border-bottom-right-radius: 50px;
+
  img{
   width: 160px;
   height: auto;
@@ -25,9 +25,21 @@ align-items: center;
 padding: 10px 20px 0 20px ;
 display: flex;
 font-size: 20px;
-color:darkgray;
+color: darkgray;
 
 img{
   width: 30px;
 }
+`
+export const Button = styled.button`
+border-radius:7px ;
+
+&:hover{
+    color:#FF8500;
+}
+&:active{
+    background-color: #684138;
+}
+
+
 `
